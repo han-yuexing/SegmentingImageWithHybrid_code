@@ -1,70 +1,85 @@
-ï»¿================================================================================
-    MICROSOFT åŸºç¡€ç±»åº“ : segmentation_mfc é¡¹ç›®æ¦‚è¿°
+SegmentingImageWithHybrid_code
+
+An algorithm based on hybrid algorithm, which combines the Gaussian filter, the mean shift method, the FloodFill, the improved FDoG, and the clustering to segment metallographic images.
+
+The work has been published. If you use the software for your research, please cite the reference as follows:
+
+Yuexing Han*, Chuanbin Lai, Bing Wang, Hui Gu. Segmenting Images with Complex Textures by Using Hybrid Algorithm [J]. Journal of Electronic Imaging, 28(1):13-30,2019
+
+E-mail address of Han Yuexing: hanyuexing@gmail.com
+
+Abstract Application of computer images processing technology to analyze materials microstructural images, particularly metallographic images, has received increasing attention. The metallographic images contain the mesoscopic information on structural relation and components of materials. Quantitative analysis of these images can help to correlate the materials structures to their performance and properties at various levels. There are two challengeable issues necessary to be resolved, i.e., automatic segmentation and classification of different microscopic structures in metallographic images. Since the metallographic images often contain complex textures, the segmentation of them is usually inaccurate with present methods. We propose a hybrid algorithm, which combines the Gaussian filter, the mean shift method, the FloodFill, the improved FDoG, and the clustering to resolve the issues. The experiment results and the comparative results show that our method is effective to segment and classify the microstructural elements in metallographic images with complex textures.
+
+
+
+
+================================================================================
+    MICROSOFT »ù´¡Àà¿â : segmentation_mfc ÏîÄ¿¸ÅÊö
 ===============================================================================
 
-åº”ç”¨ç¨‹åºå‘å¯¼å·²ä¸ºæ‚¨åˆ›å»ºäº†æ­¤ segmentation_mfc åº”ç”¨ç¨‹åºã€‚æ­¤åº”ç”¨ç¨‹åºä¸ä»…æ¼”ç¤º Microsoft åŸºç¡€ç±»çš„åŸºæœ¬ä½¿ç”¨æ–¹æ³•ï¼Œè¿˜å¯ä½œä¸ºæ‚¨ç¼–å†™åº”ç”¨ç¨‹åºçš„èµ·ç‚¹ã€‚
+Ó¦ÓÃ³ÌĞòÏòµ¼ÒÑÎªÄú´´½¨ÁË´Ë segmentation_mfc Ó¦ÓÃ³ÌĞò¡£´ËÓ¦ÓÃ³ÌĞò²»½öÑİÊ¾ Microsoft »ù´¡ÀàµÄ»ù±¾Ê¹ÓÃ·½·¨£¬»¹¿É×÷ÎªÄú±àĞ´Ó¦ÓÃ³ÌĞòµÄÆğµã¡£
 
-æœ¬æ–‡ä»¶æ¦‚è¦ä»‹ç»ç»„æˆ segmentation_mfc åº”ç”¨ç¨‹åºçš„æ¯ä¸ªæ–‡ä»¶çš„å†…å®¹ã€‚
+±¾ÎÄ¼ş¸ÅÒª½éÉÜ×é³É segmentation_mfc Ó¦ÓÃ³ÌĞòµÄÃ¿¸öÎÄ¼şµÄÄÚÈİ¡£
 
 segmentation_mfc.vcxproj
-    è¿™æ˜¯ä½¿ç”¨åº”ç”¨ç¨‹åºå‘å¯¼ç”Ÿæˆçš„ VC++ é¡¹ç›®çš„ä¸»é¡¹ç›®æ–‡ä»¶ï¼Œå…¶ä¸­åŒ…å«ç”Ÿæˆè¯¥æ–‡ä»¶çš„ Visual C++ çš„ç‰ˆæœ¬ä¿¡æ¯ï¼Œä»¥åŠæœ‰å…³ä½¿ç”¨åº”ç”¨ç¨‹åºå‘å¯¼é€‰æ‹©çš„å¹³å°ã€é…ç½®å’Œé¡¹ç›®åŠŸèƒ½çš„ä¿¡æ¯ã€‚
+    ÕâÊÇÊ¹ÓÃÓ¦ÓÃ³ÌĞòÏòµ¼Éú³ÉµÄ VC++ ÏîÄ¿µÄÖ÷ÏîÄ¿ÎÄ¼ş£¬ÆäÖĞ°üº¬Éú³É¸ÃÎÄ¼şµÄ Visual C++ µÄ°æ±¾ĞÅÏ¢£¬ÒÔ¼°ÓĞ¹ØÊ¹ÓÃÓ¦ÓÃ³ÌĞòÏòµ¼Ñ¡ÔñµÄÆ½Ì¨¡¢ÅäÖÃºÍÏîÄ¿¹¦ÄÜµÄĞÅÏ¢¡£
 
 segmentation_mfc.vcxproj.filters
-    è¿™æ˜¯ä½¿ç”¨â€œåº”ç”¨ç¨‹åºå‘å¯¼â€ç”Ÿæˆçš„ VC++ é¡¹ç›®ç­›é€‰å™¨æ–‡ä»¶ã€‚å®ƒåŒ…å«æœ‰å…³é¡¹ç›®æ–‡ä»¶ä¸ç­›é€‰å™¨ä¹‹é—´çš„å…³è”ä¿¡æ¯ã€‚åœ¨ IDE ä¸­ï¼Œé€šè¿‡è¿™ç§å…³è”ï¼Œåœ¨ç‰¹å®šèŠ‚ç‚¹ä¸‹ä»¥åˆ†ç»„å½¢å¼æ˜¾ç¤ºå…·æœ‰ç›¸ä¼¼æ‰©å±•åçš„æ–‡ä»¶ã€‚ä¾‹å¦‚ï¼Œâ€œ.cppâ€æ–‡ä»¶ä¸â€œæºæ–‡ä»¶â€ç­›é€‰å™¨å…³è”ã€‚
+    ÕâÊÇÊ¹ÓÃ¡°Ó¦ÓÃ³ÌĞòÏòµ¼¡±Éú³ÉµÄ VC++ ÏîÄ¿É¸Ñ¡Æ÷ÎÄ¼ş¡£Ëü°üº¬ÓĞ¹ØÏîÄ¿ÎÄ¼şÓëÉ¸Ñ¡Æ÷Ö®¼äµÄ¹ØÁªĞÅÏ¢¡£ÔÚ IDE ÖĞ£¬Í¨¹ıÕâÖÖ¹ØÁª£¬ÔÚÌØ¶¨½ÚµãÏÂÒÔ·Ö×éĞÎÊ½ÏÔÊ¾¾ßÓĞÏàËÆÀ©Õ¹ÃûµÄÎÄ¼ş¡£ÀıÈç£¬¡°.cpp¡±ÎÄ¼şÓë¡°Ô´ÎÄ¼ş¡±É¸Ñ¡Æ÷¹ØÁª¡£
 
 segmentation_mfc.h
-    è¿™æ˜¯åº”ç”¨ç¨‹åºçš„ä¸»å¤´æ–‡ä»¶ã€‚
-    å…¶ä¸­åŒ…æ‹¬å…¶ä»–é¡¹ç›®ç‰¹å®šçš„æ ‡å¤´ï¼ˆåŒ…æ‹¬ Resource.hï¼‰ï¼Œå¹¶å£°æ˜ Csegmentation_mfcApp åº”ç”¨ç¨‹åºç±»ã€‚
+    ÕâÊÇÓ¦ÓÃ³ÌĞòµÄÖ÷Í·ÎÄ¼ş¡£
+    ÆäÖĞ°üÀ¨ÆäËûÏîÄ¿ÌØ¶¨µÄ±êÍ·£¨°üÀ¨ Resource.h£©£¬²¢ÉùÃ÷ Csegmentation_mfcApp Ó¦ÓÃ³ÌĞòÀà¡£
 
 segmentation_mfc.cpp
-    è¿™æ˜¯åŒ…å«åº”ç”¨ç¨‹åºç±» Csegmentation_mfcApp çš„ä¸»åº”ç”¨ç¨‹åºæºæ–‡ä»¶ã€‚
+    ÕâÊÇ°üº¬Ó¦ÓÃ³ÌĞòÀà Csegmentation_mfcApp µÄÖ÷Ó¦ÓÃ³ÌĞòÔ´ÎÄ¼ş¡£
 
 segmentation_mfc.rc
-    è¿™æ˜¯ç¨‹åºä½¿ç”¨çš„æ‰€æœ‰ Microsoft Windows èµ„æºçš„åˆ—è¡¨ã€‚å®ƒåŒ…æ‹¬ RES å­ç›®å½•ä¸­å­˜å‚¨çš„å›¾æ ‡ã€ä½å›¾å’Œå…‰æ ‡ã€‚æ­¤æ–‡ä»¶å¯ä»¥ç›´æ¥åœ¨ Microsoft Visual C++ ä¸­è¿›è¡Œç¼–è¾‘ã€‚é¡¹ç›®èµ„æºåŒ…å«åœ¨ 2052 ä¸­ã€‚
+    ÕâÊÇ³ÌĞòÊ¹ÓÃµÄËùÓĞ Microsoft Windows ×ÊÔ´µÄÁĞ±í¡£Ëü°üÀ¨ RES ×ÓÄ¿Â¼ÖĞ´æ´¢µÄÍ¼±ê¡¢Î»Í¼ºÍ¹â±ê¡£´ËÎÄ¼ş¿ÉÒÔÖ±½ÓÔÚ Microsoft Visual C++ ÖĞ½øĞĞ±à¼­¡£ÏîÄ¿×ÊÔ´°üº¬ÔÚ 2052 ÖĞ¡£
 
 res\segmentation_mfc.ico
-    è¿™æ˜¯ç”¨ä½œåº”ç”¨ç¨‹åºå›¾æ ‡çš„å›¾æ ‡æ–‡ä»¶ã€‚æ­¤å›¾æ ‡åŒ…æ‹¬åœ¨ä¸»èµ„æºæ–‡ä»¶ segmentation_mfc.rc ä¸­ã€‚
+    ÕâÊÇÓÃ×÷Ó¦ÓÃ³ÌĞòÍ¼±êµÄÍ¼±êÎÄ¼ş¡£´ËÍ¼±ê°üÀ¨ÔÚÖ÷×ÊÔ´ÎÄ¼ş segmentation_mfc.rc ÖĞ¡£
 
 res\segmentation_mfc.rc2
-    æ­¤æ–‡ä»¶åŒ…å«ä¸åœ¨ Microsoft Visual C++ ä¸­è¿›è¡Œç¼–è¾‘çš„èµ„æºã€‚æ‚¨åº”è¯¥å°†ä¸å¯ç”±èµ„æºç¼–è¾‘å™¨ç¼–è¾‘çš„æ‰€æœ‰èµ„æºæ”¾åœ¨æ­¤æ–‡ä»¶ä¸­ã€‚
+    ´ËÎÄ¼ş°üº¬²»ÔÚ Microsoft Visual C++ ÖĞ½øĞĞ±à¼­µÄ×ÊÔ´¡£ÄúÓ¦¸Ã½«²»¿ÉÓÉ×ÊÔ´±à¼­Æ÷±à¼­µÄËùÓĞ×ÊÔ´·ÅÔÚ´ËÎÄ¼şÖĞ¡£
 
 
 /////////////////////////////////////////////////////////////////////////////
 
-åº”ç”¨ç¨‹åºå‘å¯¼åˆ›å»ºä¸€ä¸ªå¯¹è¯æ¡†ç±»ï¼š
+Ó¦ÓÃ³ÌĞòÏòµ¼´´½¨Ò»¸ö¶Ô»°¿òÀà£º
 
-segmentation_mfcDlg.hã€segmentation_mfcDlg.cpp - å¯¹è¯æ¡†
-    è¿™äº›æ–‡ä»¶åŒ…å« Csegmentation_mfcDlg ç±»ã€‚æ­¤ç±»å®šä¹‰åº”ç”¨ç¨‹åºçš„ä¸»å¯¹è¯æ¡†çš„è¡Œä¸ºã€‚å¯¹è¯æ¡†æ¨¡æ¿åŒ…å«åœ¨ segmentation_mfc.rc ä¸­ï¼Œè¯¥æ–‡ä»¶å¯ä»¥åœ¨ Microsoft Visual C++ ä¸­ç¼–è¾‘ã€‚
-
-/////////////////////////////////////////////////////////////////////////////
-
-å…¶ä»–åŠŸèƒ½ï¼š
-
-ActiveX æ§ä»¶
-    è¯¥åº”ç”¨ç¨‹åºåŒ…å«å¯¹ä½¿ç”¨ ActiveX æ§ä»¶çš„æ”¯æŒã€‚
-
-æ‰“å°å’Œæ‰“å°é¢„è§ˆæ”¯æŒ
-    åº”ç”¨ç¨‹åºå‘å¯¼é€šè¿‡ä» MFC åº“è°ƒç”¨ CView ç±»ä¸­çš„æˆå‘˜å‡½æ•°ç”Ÿæˆä»£ç ï¼Œæ¥å¤„ç†æ‰“å°ã€æ‰“å°è®¾ç½®å’Œæ‰“å°é¢„è§ˆå‘½ä»¤ã€‚
+segmentation_mfcDlg.h¡¢segmentation_mfcDlg.cpp - ¶Ô»°¿ò
+    ÕâĞ©ÎÄ¼ş°üº¬ Csegmentation_mfcDlg Àà¡£´ËÀà¶¨ÒåÓ¦ÓÃ³ÌĞòµÄÖ÷¶Ô»°¿òµÄĞĞÎª¡£¶Ô»°¿òÄ£°å°üº¬ÔÚ segmentation_mfc.rc ÖĞ£¬¸ÃÎÄ¼ş¿ÉÒÔÔÚ Microsoft Visual C++ ÖĞ±à¼­¡£
 
 /////////////////////////////////////////////////////////////////////////////
 
-å…¶ä»–æ ‡å‡†æ–‡ä»¶:
+ÆäËû¹¦ÄÜ£º
+
+ActiveX ¿Ø¼ş
+    ¸ÃÓ¦ÓÃ³ÌĞò°üº¬¶ÔÊ¹ÓÃ ActiveX ¿Ø¼şµÄÖ§³Ö¡£
+
+´òÓ¡ºÍ´òÓ¡Ô¤ÀÀÖ§³Ö
+    Ó¦ÓÃ³ÌĞòÏòµ¼Í¨¹ı´Ó MFC ¿âµ÷ÓÃ CView ÀàÖĞµÄ³ÉÔ±º¯ÊıÉú³É´úÂë£¬À´´¦Àí´òÓ¡¡¢´òÓ¡ÉèÖÃºÍ´òÓ¡Ô¤ÀÀÃüÁî¡£
+
+/////////////////////////////////////////////////////////////////////////////
+
+ÆäËû±ê×¼ÎÄ¼ş:
 
 StdAfx.h, StdAfx.cpp
-    è¿™äº›æ–‡ä»¶ç”¨äºç”Ÿæˆåä¸º segmentation_mfc.pch çš„é¢„ç¼–è¯‘å¤´ (PCH) æ–‡ä»¶å’Œåä¸º StdAfx.obj çš„é¢„ç¼–è¯‘ç±»å‹æ–‡ä»¶ã€‚
+    ÕâĞ©ÎÄ¼şÓÃÓÚÉú³ÉÃûÎª segmentation_mfc.pch µÄÔ¤±àÒëÍ· (PCH) ÎÄ¼şºÍÃûÎª StdAfx.obj µÄÔ¤±àÒëÀàĞÍÎÄ¼ş¡£
 
 Resource.h
-    è¿™æ˜¯æ ‡å‡†å¤´æ–‡ä»¶ï¼Œå¯ç”¨äºå®šä¹‰æ–°çš„èµ„æº IDã€‚Microsoft Visual C++ å°†è¯»å–å¹¶æ›´æ–°æ­¤æ–‡ä»¶ã€‚
+    ÕâÊÇ±ê×¼Í·ÎÄ¼ş£¬¿ÉÓÃÓÚ¶¨ÒåĞÂµÄ×ÊÔ´ ID¡£Microsoft Visual C++ ½«¶ÁÈ¡²¢¸üĞÂ´ËÎÄ¼ş¡£
 
 segmentation_mfc.manifest
-	Windows XP ä½¿ç”¨åº”ç”¨ç¨‹åºæ¸…å•æ–‡ä»¶æ¥æè¿°ç‰¹å®šç‰ˆæœ¬çš„å¹¶è¡Œç¨‹åºé›†çš„åº”ç”¨ç¨‹åºä¾èµ–é¡¹ã€‚åŠ è½½ç¨‹åºä½¿ç”¨è¿™äº›ä¿¡æ¯æ¥ä»ç¨‹åºé›†ç¼“å­˜ä¸­åŠ è½½ç›¸åº”çš„ç¨‹åºé›†ï¼Œå¹¶ä¿æŠ¤å…¶ä¸è¢«åº”ç”¨ç¨‹åºè®¿é—®ã€‚åº”ç”¨ç¨‹åºæ¸…å•å¯èƒ½ä¼šåŒ…å«åœ¨å†…ï¼Œä»¥ä½œä¸ºä¸åº”ç”¨ç¨‹åºå¯æ‰§è¡Œæ–‡ä»¶å®‰è£…åœ¨åŒä¸€æ–‡ä»¶å¤¹ä¸­çš„å¤–éƒ¨ .manifest æ–‡ä»¶è¿›è¡Œé‡æ–°åˆ†å‘ï¼Œå®ƒè¿˜å¯èƒ½ä»¥èµ„æºçš„å½¢å¼åŒ…å«åœ¨å¯æ‰§è¡Œæ–‡ä»¶ä¸­ã€‚
+	Windows XP Ê¹ÓÃÓ¦ÓÃ³ÌĞòÇåµ¥ÎÄ¼şÀ´ÃèÊöÌØ¶¨°æ±¾µÄ²¢ĞĞ³ÌĞò¼¯µÄÓ¦ÓÃ³ÌĞòÒÀÀµÏî¡£¼ÓÔØ³ÌĞòÊ¹ÓÃÕâĞ©ĞÅÏ¢À´´Ó³ÌĞò¼¯»º´æÖĞ¼ÓÔØÏàÓ¦µÄ³ÌĞò¼¯£¬²¢±£»¤Æä²»±»Ó¦ÓÃ³ÌĞò·ÃÎÊ¡£Ó¦ÓÃ³ÌĞòÇåµ¥¿ÉÄÜ»á°üº¬ÔÚÄÚ£¬ÒÔ×÷ÎªÓëÓ¦ÓÃ³ÌĞò¿ÉÖ´ĞĞÎÄ¼ş°²×°ÔÚÍ¬Ò»ÎÄ¼ş¼ĞÖĞµÄÍâ²¿ .manifest ÎÄ¼ş½øĞĞÖØĞÂ·Ö·¢£¬Ëü»¹¿ÉÄÜÒÔ×ÊÔ´µÄĞÎÊ½°üº¬ÔÚ¿ÉÖ´ĞĞÎÄ¼şÖĞ¡£
 /////////////////////////////////////////////////////////////////////////////
 
-å…¶ä»–æ³¨é‡Š:
+ÆäËû×¢ÊÍ:
 
-åº”ç”¨ç¨‹åºå‘å¯¼ä½¿ç”¨â€œTODO:â€æ¥æŒ‡ç¤ºåº”æ·»åŠ æˆ–è‡ªå®šä¹‰çš„æºä»£ç éƒ¨åˆ†ã€‚
+Ó¦ÓÃ³ÌĞòÏòµ¼Ê¹ÓÃ¡°TODO:¡±À´Ö¸Ê¾Ó¦Ìí¼Ó»ò×Ô¶¨ÒåµÄÔ´´úÂë²¿·Ö¡£
 
-å¦‚æœåº”ç”¨ç¨‹åºä½¿ç”¨å…±äº« DLL ä¸­çš„ MFCï¼Œæ‚¨å°†éœ€è¦é‡æ–°åˆ†å‘ MFC DLLã€‚å¦‚æœåº”ç”¨ç¨‹åºæ‰€ä½¿ç”¨çš„è¯­è¨€ä¸æ“ä½œç³»ç»Ÿçš„åŒºåŸŸè®¾ç½®ä¸åŒï¼Œåˆ™è¿˜éœ€è¦é‡æ–°åˆ†å‘ç›¸åº”çš„æœ¬åœ°åŒ–èµ„æº mfc110XXX.DLLã€‚
-æœ‰å…³ä¸Šè¿°è¯é¢˜çš„æ›´å¤šä¿¡æ¯ï¼Œè¯·å‚è§ MSDN æ–‡æ¡£ä¸­æœ‰å…³é‡æ–°åˆ†å‘ Visual C++ åº”ç”¨ç¨‹åºçš„éƒ¨åˆ†ã€‚
+Èç¹ûÓ¦ÓÃ³ÌĞòÊ¹ÓÃ¹²Ïí DLL ÖĞµÄ MFC£¬Äú½«ĞèÒªÖØĞÂ·Ö·¢ MFC DLL¡£Èç¹ûÓ¦ÓÃ³ÌĞòËùÊ¹ÓÃµÄÓïÑÔÓë²Ù×÷ÏµÍ³µÄÇøÓòÉèÖÃ²»Í¬£¬Ôò»¹ĞèÒªÖØĞÂ·Ö·¢ÏàÓ¦µÄ±¾µØ»¯×ÊÔ´ mfc110XXX.DLL¡£
+ÓĞ¹ØÉÏÊö»°ÌâµÄ¸ü¶àĞÅÏ¢£¬Çë²Î¼û MSDN ÎÄµµÖĞÓĞ¹ØÖØĞÂ·Ö·¢ Visual C++ Ó¦ÓÃ³ÌĞòµÄ²¿·Ö¡£
 
 /////////////////////////////////////////////////////////////////////////////
